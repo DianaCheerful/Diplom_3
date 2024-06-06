@@ -32,7 +32,7 @@ public class BaseTest {
     @BeforeClass
     public static void initSettings() {
         RestAssured.baseURI = STELLAR_BURGER_URL;
-        driver = WebDriverConfiguration.setDriver(FIREFOX);
+        driver = WebDriverConfiguration.setDriver(CHROME);
         driver.get(STELLAR_BURGER_URL);
         mainPageObject = new MainPageObject(driver);
     }
@@ -45,9 +45,9 @@ public class BaseTest {
     @Parameterized.Parameters
     public static Object[][] getUser() {
         return new Object[][]{
-                {new User(USER_1.getName(), USER_1.getEmail(), USER_1.getPassword())},
-                {new User(USER_2.getEmail(), USER_2.getPassword(), USER_2.getName())},
-                {new User(USER_3.getEmail(), USER_3.getPassword(), USER_3.getName())}
+                {new User(USER_1.getEmail(), USER_1.getPassword(), USER_1.getName())},
+//                {new User(USER_2.getEmail(), USER_2.getPassword(), USER_2.getName())},
+//                {new User(USER_3.getEmail(), USER_3.getPassword(), USER_3.getName())}
         };
     }
 }

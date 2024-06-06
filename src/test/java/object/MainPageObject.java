@@ -9,15 +9,21 @@ public class MainPageObject {
 
     private final WebDriver driver;
 
-    private final By personalCabinet = By.xpath("//p[text() = 'Личный Кабинет']");
+    private final By profileLink = By.xpath("//p[text() = 'Личный Кабинет']");
+    private final By loginButton = By.xpath("//button[text() = 'Войти в аккаунт']");
 
     public MainPageObject(WebDriver driver) {
         this.driver = driver;
     }
 
     @Step("Open personal cabinet")
-    public void openPersonalCabinet() {
-        driver.findElement(personalCabinet).click();
+    public void openProfile() {
+        driver.findElement(profileLink).click();
+    }
+
+    @Step("Open login page by login button")
+    public void openLoginPageByLoginButton() {
+        driver.findElement(loginButton).click();
     }
 
 

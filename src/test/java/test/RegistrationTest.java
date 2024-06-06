@@ -33,8 +33,8 @@ public class RegistrationTest extends BaseTest {
     @DisplayName("Registration test")
     @Description("Should open login page after successful registration")
     public void shouldOpenLoginPageAfterSuccessRegistration() {
-        mainPageObject.openPersonalCabinet();
-        registrationPageObject.registerUser(user);
+        mainPageObject.openProfile();
+        registrationPageObject.registerUser(user.getName(), user.getEmail(), user.getPassword());
         loginPageObject.waitLoginPage();
         assertEquals("Pages urls should be the same", LOGIN_PAGE_URL, getWebdriver().getCurrentUrl());
         Response responseWithToken = loginUser(user);
@@ -45,8 +45,8 @@ public class RegistrationTest extends BaseTest {
     @DisplayName("Registration test with incorrect password")
     @Description("Should not register and show incorrect password error")
     public void shouldShowPasswordErrorAfterFailedRegistration() {
-        mainPageObject.openPersonalCabinet();
-        registrationPageObject.registerUser(new User(user.getName(), user.getEmail(), INCORRECT_PASSWORD));
+        mainPageObject.openProfile();
+        registrationPageObject.registerUser(user.getName(), user.getEmail(), INCORRECT_PASSWORD);
         registrationPageObject.waitPasswordError();
         assertNotEquals("Pages urls should not be the same", LOGIN_PAGE_URL, getWebdriver().getCurrentUrl());
     }

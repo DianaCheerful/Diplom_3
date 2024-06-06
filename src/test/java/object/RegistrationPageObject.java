@@ -24,11 +24,11 @@ public class RegistrationPageObject {
         this.driver = driver;
     }
 
-    public void registerUser(User user) {
+    public void registerUser(String name, String email, String password) {
         openRegistrationPage();
-        fillUserName(user.getName());
-        fillUserEmail(user.getEmail());
-        fillUserPassword(user.getPassword());
+        fillUserName(name);
+        fillUserEmail(email);
+        fillUserPassword(password);
         pressRegisterButton();
     }
 

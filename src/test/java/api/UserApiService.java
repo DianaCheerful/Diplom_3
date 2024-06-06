@@ -3,7 +3,6 @@ package api;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import model.User;
-import api.UserResponse;
 import org.apache.http.protocol.HTTP;
 
 import static constant.TestConstants.*;
@@ -16,7 +15,7 @@ public class UserApiService {
     public static Response createUser(User user) {
         return given()
                 .header(HTTP.CONTENT_TYPE, JSON_TYPE)
-                .body(user)
+                .body(new User(user.getEmail(), user.getPassword(), user.getName()))
                 .post(CREATE_USER_METHOD);
     }
 
