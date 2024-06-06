@@ -7,10 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.opera.OperaOptions;
 
-import static constant.TestConstants.*;
+import static constant.TestConstants.WebDriverType;
 import static constant.TestConstants.WebDriverType.CHROME;
 
 public class WebDriverConfiguration extends ExternalResource {
@@ -25,7 +23,7 @@ public class WebDriverConfiguration extends ExternalResource {
 
     private static ChromeDriver setChrome() {
         WebDriverManager.chromedriver().setup();
-        return new ChromeDriver( new ChromeOptions());
+        return new ChromeDriver(new ChromeOptions());
     }
 
     private static FirefoxDriver setFirefox() {

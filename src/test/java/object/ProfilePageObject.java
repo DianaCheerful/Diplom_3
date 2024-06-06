@@ -12,9 +12,6 @@ public class ProfilePageObject {
 
     private final WebDriver driver;
 
-    private final By nameInput = By.xpath("//label[text() = 'Имя']/parent::div/input");
-    private final By loginInput = By.xpath("//label[text() = 'Логин']/parent::div/input");
-    private final By passwordInput = By.xpath("//label[text() = 'Пароль']/parent::div/input");
     private final By profileHeader = By.xpath("//a[text() = 'Профиль']");
 
     public ProfilePageObject(WebDriver driver) {

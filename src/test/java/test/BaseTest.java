@@ -2,18 +2,16 @@ package test;
 
 import driver.WebDriverConfiguration;
 import io.restassured.RestAssured;
-import io.restassured.response.Response;
 import model.User;
 import object.MainPageObject;
-import object.RegistrationPageObject;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 
 import static constant.TestConstants.STELLAR_BURGER_URL;
-import static constant.TestConstants.WebDriverType.*;
-import static constant.UserData.*;
+import static constant.TestConstants.WebDriverType.CHROME;
+import static constant.UserData.USER_1;
 
 public class BaseTest {
 
@@ -25,6 +23,7 @@ public class BaseTest {
 
     protected User user;
     protected static MainPageObject mainPageObject;
+
     public static WebDriver getWebdriver() {
         return driver;
     }

@@ -1,7 +1,6 @@
 package object;
 
 import io.qameta.allure.Step;
-import model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
