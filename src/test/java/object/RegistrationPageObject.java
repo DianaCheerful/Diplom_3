@@ -18,6 +18,8 @@ public class RegistrationPageObject {
     private final By passwordInput = By.xpath("//label[text() = 'Пароль']/parent::div/input");
     private final By registerButton = By.xpath("//button[text() = 'Зарегистрироваться']");
     private final By passwordError = By.xpath("//p[text() = 'Некорректный пароль']");
+    private final By login = By.xpath("//a[text() = 'Войти']");
+
 
     public RegistrationPageObject(WebDriver driver) {
         this.driver = driver;
@@ -60,6 +62,11 @@ public class RegistrationPageObject {
     @Step("Press register button")
     public void pressRegisterButton() {
         driver.findElement(registerButton).click();
+    }
+
+    @Step("Press login button")
+    public void pressLogin() {
+        driver.findElement(login).click();
     }
 
     @Step("Wait for the incorrect password error")

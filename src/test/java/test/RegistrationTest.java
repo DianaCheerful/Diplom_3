@@ -7,13 +7,13 @@ import io.restassured.response.Response;
 import model.User;
 import object.LoginPageObject;
 import object.RegistrationPageObject;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import static api.UserApiService.*;
-import static constant.TestConstants.INCORRECT_PASSWORD;
-import static constant.TestConstants.LOGIN_PAGE_URL;
+import static constant.TestConstants.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
@@ -28,6 +28,11 @@ public class RegistrationTest extends BaseTest {
     private final RegistrationPageObject registrationPageObject = new RegistrationPageObject(getWebdriver());
     private final LoginPageObject loginPageObject = new LoginPageObject(getWebdriver());
 
+
+    @Before
+    public void init() {
+        getWebdriver().get(STELLAR_BURGER_URL);
+    }
 
     @Test
     @DisplayName("Registration test")

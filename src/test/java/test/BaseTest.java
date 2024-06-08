@@ -5,6 +5,7 @@ import io.restassured.RestAssured;
 import model.User;
 import object.MainPageObject;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;

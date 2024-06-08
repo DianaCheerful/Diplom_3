@@ -6,7 +6,6 @@ import model.User;
 import org.apache.http.protocol.HTTP;
 
 import static constant.TestConstants.*;
-import static constant.TestConstants.CREATE_USER_METHOD;
 import static io.restassured.RestAssured.given;
 
 public class UserApiService {
@@ -38,6 +37,5 @@ public class UserApiService {
     public static String getAccessToken(Response response) {
         return response.body().as(UserResponse.class).getAccessToken();
     }
-
 
 }
