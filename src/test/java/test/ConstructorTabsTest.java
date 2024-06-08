@@ -14,25 +14,7 @@ import static constant.TestConstants.STELLAR_BURGER_URL;
 import static constant.TestConstants.WebDriverType.CHROME;
 import static org.junit.Assert.assertEquals;
 
-public class ConstructorTabsTest {
-
-    private static WebDriver driver;
-
-    protected static MainPageObject mainPageObject;
-
-
-    @Before
-    public void initSettings() {
-        RestAssured.baseURI = STELLAR_BURGER_URL;
-        driver = WebDriverConfiguration.setDriver(CHROME);
-        driver.get(STELLAR_BURGER_URL);
-        mainPageObject = new MainPageObject(driver);
-    }
-
-    @After
-    public void quitDriver() {
-        driver.quit();
-    }
+public class ConstructorTabsTest extends BaseTest{
 
     @Test
     @DisplayName("Constructor buns tab test")

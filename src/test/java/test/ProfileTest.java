@@ -30,14 +30,10 @@ public class ProfileTest extends BaseTest {
     private final LoginPageObject loginPageObject = new LoginPageObject(getWebdriver());
     private final ProfilePageObject profilePageObject = new ProfilePageObject(getWebdriver());
 
-    private Response responseWithToken;
-
 
     @Before
     public void init() {
-
         responseWithToken = createUser(user);
-        getWebdriver().get(STELLAR_BURGER_URL);
     }
 
     @After

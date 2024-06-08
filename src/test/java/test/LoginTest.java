@@ -32,8 +32,6 @@ public class LoginTest extends BaseTest {
     private final RegistrationPageObject registrationPageObject = new RegistrationPageObject(getWebdriver());
     private final RestorePasswordPageObject restorePasswordPageObject = new RestorePasswordPageObject(getWebdriver());
 
-    private Response responseWithToken;
-
 
     @Before
     public void init() {

@@ -30,8 +30,6 @@ public class LogoutTest extends BaseTest {
     private final ProfilePageObject profilePageObject = new ProfilePageObject(getWebdriver());
     private final RestorePasswordPageObject restorePasswordPageObject = new RestorePasswordPageObject(getWebdriver());
 
-    private Response responseWithToken;
-
 
     @Before
     public void init() {
