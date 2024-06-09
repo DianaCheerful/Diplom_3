@@ -7,11 +7,12 @@ public class TestConstants {
     public static final String LOGIN_PAGE_URL = "https://stellarburgers.nomoreparties.site/login";
     public static final String PROFILE_PAGE_URL = "https://stellarburgers.nomoreparties.site/account/profile";
     public static final String JS_CLICK_SCRIPT = "arguments[0].click();";
+    public static final String YANDEX_BINARY = "C:\\Program Files (x86)\\Yandex\\YandexBrowser\\Application\\browser.exe";
 
 
     public enum WebDriverType {
         CHROME,
-        FIREFOX
+        YANDEX
     }
 
     public static final String CREATE_USER_METHOD = "/api/auth/register";

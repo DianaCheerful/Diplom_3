@@ -1,5 +1,6 @@
 package driver;
 
+import com.google.common.io.Resources;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.rules.ExternalResource;
 import org.openqa.selenium.WebDriver;
@@ -8,8 +9,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import java.io.File;
+import java.util.concurrent.BrokenBarrierException;
+
+import static com.google.common.io.Resources.getResource;
 import static constant.TestConstants.WebDriverType;
 import static constant.TestConstants.WebDriverType.CHROME;
+import static constant.TestConstants.YANDEX_BINARY;
 
 public class WebDriverConfiguration extends ExternalResource {
 
@@ -17,7 +23,7 @@ public class WebDriverConfiguration extends ExternalResource {
         if (webDriver == CHROME) {
             return setChrome();
         } else {
-            return setFirefox();
+            return setYandex();
         }
     }
 
@@ -26,8 +32,10 @@ public class WebDriverConfiguration extends ExternalResource {
         return new ChromeDriver(new ChromeOptions());
     }
 
-    private static FirefoxDriver setFirefox() {
-        WebDriverManager.firefoxdriver().setup();
-        return new FirefoxDriver(new FirefoxOptions());
+    private static ChromeDriver setYandex() {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary(YANDEX_BINARY);
+        return new ChromeDriver(options);
     }
 }

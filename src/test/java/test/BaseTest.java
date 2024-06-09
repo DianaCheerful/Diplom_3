@@ -12,7 +12,7 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 
 import static constant.TestConstants.STELLAR_BURGER_URL;
-import static constant.TestConstants.WebDriverType.CHROME;
+import static constant.TestConstants.WebDriverType.YANDEX;
 import static constant.UserData.*;
 
 public class BaseTest {
@@ -23,6 +23,7 @@ public class BaseTest {
     public BaseTest(User user) {
         this.user = user;
     }
+
     public BaseTest() {
     }
 
@@ -36,11 +37,12 @@ public class BaseTest {
     @BeforeClass
     public static void initSettings() {
         RestAssured.baseURI = STELLAR_BURGER_URL;
-        driver = WebDriverConfiguration.setDriver(CHROME);
+        driver = WebDriverConfiguration.setDriver(YANDEX);
         mainPageObject = new MainPageObject(driver);
     }
+
     @Before
-    public void start(){
+    public void start() {
         driver.get(STELLAR_BURGER_URL);
     }
 
