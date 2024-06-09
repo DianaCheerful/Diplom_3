@@ -24,7 +24,6 @@ public class ProfilePageObject {
     }
 
 
-
     @Step("Wait for the login header")
     public void waitLoginField() {
         new WebDriverWait(driver, 5).until(driver -> driver.findElement(loginInput).isDisplayed());
@@ -41,17 +40,17 @@ public class ProfilePageObject {
     }
 
     @Step("Open constructor tab")
-    public void openConstructorTab(){
+    public void openConstructorTab() {
         driver.findElement(constructorTab).click();
     }
 
     @Step("Click Stellar Burger logo")
-    public void clickStellarBurgerLogo(){
+    public void clickStellarBurgerLogo() {
         driver.findElement(stellarBurgerLogo).click();
     }
 
     @Step("Click logout")
-    public void clickLogout(){
+    public void clickLogout() {
         new WebDriverWait(driver, 10).until(driver -> driver.findElement(logoutHeader).isDisplayed());
         driver.findElement(logoutHeader).click();
     }

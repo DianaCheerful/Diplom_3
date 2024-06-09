@@ -1,29 +1,21 @@
 package driver;
 
-import com.google.common.io.Resources;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.rules.ExternalResource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 
-import java.io.File;
-import java.util.concurrent.BrokenBarrierException;
-
-import static com.google.common.io.Resources.getResource;
-import static constant.TestConstants.WebDriverType;
-import static constant.TestConstants.WebDriverType.CHROME;
-import static constant.TestConstants.YANDEX_BINARY;
+import static constant.TestConstants.*;
+import static constant.TestConstants.WebDriverType.YANDEX;
 
 public class WebDriverConfiguration extends ExternalResource {
 
     public static WebDriver setDriver(WebDriverType webDriver) {
-        if (webDriver == CHROME) {
-            return setChrome();
-        } else {
+        if (webDriver == YANDEX) {
             return setYandex();
+        } else {
+            return setChrome();
         }
     }
 
@@ -35,7 +27,9 @@ public class WebDriverConfiguration extends ExternalResource {
     private static ChromeDriver setYandex() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.setBinary(YANDEX_BINARY);
+        options.setBinary(System.getProperty(BIN_PROPERTY_NAME));
+        options.setCapability(BROWSER_PROPERTY_NAME, System.getProperty(BROWSER_PROPERTY_NAME));
+        options.setCapability(VERSION_PROPERTY_NAME, System.getProperty(VERSION_PROPERTY_NAME));
         return new ChromeDriver(options);
     }
 }

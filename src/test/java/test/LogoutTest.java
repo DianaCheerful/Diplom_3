@@ -3,7 +3,6 @@ package test;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.response.Response;
 import model.User;
 import object.LoginPageObject;
 import object.ProfilePageObject;

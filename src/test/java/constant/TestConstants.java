@@ -7,7 +7,9 @@ public class TestConstants {
     public static final String LOGIN_PAGE_URL = "https://stellarburgers.nomoreparties.site/login";
     public static final String PROFILE_PAGE_URL = "https://stellarburgers.nomoreparties.site/account/profile";
     public static final String JS_CLICK_SCRIPT = "arguments[0].click();";
-    public static final String YANDEX_BINARY = "C:\\Program Files (x86)\\Yandex\\YandexBrowser\\Application\\browser.exe";
+    public static final String BIN_PROPERTY_NAME = "webdriver.yandex.bin";
+    public static final String BROWSER_PROPERTY_NAME = "browser";
+    public static final String VERSION_PROPERTY_NAME = "version";
 
 
     public enum WebDriverType {

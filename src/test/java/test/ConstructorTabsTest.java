@@ -1,20 +1,12 @@
 package test;
 
-import driver.WebDriverConfiguration;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.RestAssured;
-import object.MainPageObject;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 
-import static constant.TestConstants.STELLAR_BURGER_URL;
-import static constant.TestConstants.WebDriverType.CHROME;
 import static org.junit.Assert.assertEquals;
 
-public class ConstructorTabsTest extends BaseTest{
+public class ConstructorTabsTest extends BaseTest {
 
     @Test
     @DisplayName("Constructor buns tab test")
