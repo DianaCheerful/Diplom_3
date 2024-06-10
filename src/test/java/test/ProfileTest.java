@@ -6,13 +6,12 @@ import io.qameta.allure.junit4.DisplayName;
 import model.User;
 import object.LoginPageObject;
 import object.ProfilePageObject;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static api.UserApiService.*;
+import static api.UserApiService.createUser;
 import static constant.TestConstants.MAIN_PAGE_URL;
 import static constant.TestConstants.PROFILE_PAGE_URL;
 import static org.junit.Assert.assertEquals;
@@ -32,11 +31,6 @@ public class ProfileTest extends BaseTest {
     @Before
     public void init() {
         responseWithToken = createUser(user);
-    }
-
-    @After
-    public void finish() {
-        deleteUser(getAccessToken(responseWithToken));
     }
 
 

@@ -7,13 +7,12 @@ import model.User;
 import object.LoginPageObject;
 import object.ProfilePageObject;
 import object.RestorePasswordPageObject;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static api.UserApiService.*;
+import static api.UserApiService.createUser;
 import static constant.TestConstants.LOGIN_PAGE_URL;
 import static org.junit.Assert.assertEquals;
 
@@ -35,10 +34,6 @@ public class LogoutTest extends BaseTest {
         responseWithToken = createUser(user);
     }
 
-    @After
-    public void finish() {
-        deleteUser(getAccessToken(responseWithToken));
-    }
 
     @Test
     @DisplayName("Logout test")

@@ -39,9 +39,13 @@ public class LoginTest extends BaseTest {
     }
 
     @After
+    @Override
     public void finish() {
         profilePageObject.clickLogout();
-        deleteUser(getAccessToken(responseWithToken));
+        String accessToken = getAccessToken(responseWithToken);
+        if (accessToken != null) {
+            deleteUser(accessToken);
+        }
     }
 
     @Test

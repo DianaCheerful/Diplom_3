@@ -3,7 +3,6 @@ package test;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.response.Response;
 import model.User;
 import object.LoginPageObject;
 import object.RegistrationPageObject;
@@ -11,7 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static api.UserApiService.*;
+import static api.UserApiService.loginUser;
 import static constant.TestConstants.INCORRECT_PASSWORD;
 import static constant.TestConstants.LOGIN_PAGE_URL;
 import static org.junit.Assert.assertEquals;
@@ -37,8 +36,7 @@ public class RegistrationTest extends BaseTest {
         registrationPageObject.registerUser(user.getName(), user.getEmail(), user.getPassword());
         loginPageObject.waitLoginPage();
         assertEquals("Pages urls should be the same", LOGIN_PAGE_URL, getWebdriver().getCurrentUrl());
-        Response responseWithToken = loginUser(user);
-        deleteUser(getAccessToken(responseWithToken));
+        responseWithToken = loginUser(user);
     }
 
     @Test

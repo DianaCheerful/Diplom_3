@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
-import static constant.TestConstants.JS_CLICK_SCRIPT;
+import static constant.TestConstants.*;
 
 
 public class MainPageObject {
@@ -18,9 +18,9 @@ public class MainPageObject {
     private final By bunsTab = By.xpath("//span[text() = 'Булки']");
     private final By saucesTab = By.xpath("//*[text() = 'Соусы']");
     private final By fillingsTab = By.xpath("//*[text() = 'Начинки']");
-    private final By bunsHeader = By.xpath("//h2[text() = 'Булки']");
-    private final By saucesHeader = By.xpath("//h2[text() = 'Соусы']");
-    private final By fillingsHeader = By.xpath("//h2[text() = 'Начинки']");
+    private final By bunsDiv = By.xpath("//span[text() = 'Булки']//parent::div");
+    private final By saucesDiv = By.xpath("//span[text() = 'Соусы']//parent::div");
+    private final By fillingsDiv = By.xpath("//span[text() = 'Начинки']//parent::div");
 
     public MainPageObject(WebDriver driver) {
         this.driver = driver;
@@ -37,38 +37,50 @@ public class MainPageObject {
     }
 
     @Step("Open constructor tab")
-    public void openConstructorTab() {
+    private void openConstructorTab() {
         driver.findElement(constructorTab).click();
     }
 
     @Step("Open buns tab")
     public void openBunsTab() {
+        openConstructorTab();
+        if (isBunsTabSelected()) {
+            openSaucesTab();
+        }
         ((JavascriptExecutor) driver).executeScript(JS_CLICK_SCRIPT, driver.findElement(bunsTab));
     }
 
     @Step("Open buns tab")
     public void openSaucesTab() {
+        openConstructorTab();
+        if (isSaucesTabSelected()) {
+            openBunsTab();
+        }
         ((JavascriptExecutor) driver).executeScript(JS_CLICK_SCRIPT, driver.findElement(saucesTab));
     }
 
     @Step("Open fillings tab")
     public void openFillingsTab() {
+        openConstructorTab();
+        if (isFillingsTabSelected()) {
+            openSaucesTab();
+        }
         ((JavascriptExecutor) driver).executeScript(JS_CLICK_SCRIPT, driver.findElement(fillingsTab));
     }
 
     @Step("Is buns tab")
-    public Boolean isBunsHeaderVisible() {
-        return driver.findElement(bunsHeader).isDisplayed();
+    public Boolean isBunsTabSelected() {
+        return driver.findElement(bunsDiv).getAttribute(CLASS_ATTRIBUTE).contains(SELECTED_TAB_VALUE);
     }
 
     @Step("Is sauces tab")
-    public Boolean isSaucesHeaderVisible() {
-        return driver.findElement(saucesHeader).isDisplayed();
+    public Boolean isSaucesTabSelected() {
+        return driver.findElement(saucesDiv).getAttribute(CLASS_ATTRIBUTE).contains(SELECTED_TAB_VALUE);
     }
 
     @Step("Is fillings tab")
-    public Boolean isFillingsHeaderVisible() {
-        return driver.findElement(fillingsHeader).isDisplayed();
+    public Boolean isFillingsTabSelected() {
+        return driver.findElement(fillingsDiv).getAttribute(CLASS_ATTRIBUTE).contains(SELECTED_TAB_VALUE);
     }
 
 }

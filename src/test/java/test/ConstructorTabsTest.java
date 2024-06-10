@@ -12,26 +12,23 @@ public class ConstructorTabsTest extends BaseTest {
     @DisplayName("Constructor buns tab test")
     @Description("Should open buns tab")
     public void shouldOpenBunsTab() {
-        mainPageObject.openConstructorTab();
         mainPageObject.openBunsTab();
-        assertEquals("Buns header should be visible", true, mainPageObject.isBunsHeaderVisible());
+        assertEquals("Buns tab should be selected", true, mainPageObject.isBunsTabSelected());
     }
 
     @Test
     @DisplayName("Constructor sauces tab test")
     @Description("Should open sauces tab")
     public void shouldOpenSaucesTab() {
-        mainPageObject.openConstructorTab();
         mainPageObject.openSaucesTab();
-        assertEquals("Sauces header should be visible", true, mainPageObject.isSaucesHeaderVisible());
+        assertEquals("Sauces tab should be selected", true, mainPageObject.isSaucesTabSelected());
     }
 
     @Test
     @DisplayName("Constructor fillings tab test")
     @Description("Should open fillings tab")
     public void shouldOpenFillingsTab() {
-        mainPageObject.openConstructorTab();
         mainPageObject.openFillingsTab();
-        assertEquals("Fillings header should be visible", true, mainPageObject.isFillingsHeaderVisible());
+        assertEquals("Fillings tab should be selected", true, mainPageObject.isFillingsTabSelected());
     }
 }

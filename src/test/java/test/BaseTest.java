@@ -5,12 +5,15 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import model.User;
 import object.MainPageObject;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 
+import static api.UserApiService.deleteUser;
+import static api.UserApiService.getAccessToken;
 import static constant.TestConstants.STELLAR_BURGER_URL;
 import static constant.TestConstants.WebDriverType.CHROME;
 import static constant.UserData.*;
@@ -41,14 +44,24 @@ public class BaseTest {
         mainPageObject = new MainPageObject(driver);
     }
 
+    @AfterClass
+    public static void quitDriver() {
+        driver.quit();
+    }
+
     @Before
     public void start() {
         driver.get(STELLAR_BURGER_URL);
     }
 
-    @AfterClass
-    public static void quitDriver() {
-        driver.quit();
+    @After
+    public void finish() {
+        if (responseWithToken != null) {
+            String accessToken = getAccessToken(responseWithToken);
+            if (accessToken != null) {
+                deleteUser(accessToken);
+            }
+        }
     }
 
     @Parameterized.Parameters

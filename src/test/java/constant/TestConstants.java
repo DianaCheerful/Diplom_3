@@ -23,5 +23,7 @@ public class TestConstants {
     public static final String JSON_TYPE = "application/json";
     public static final String AUTHORIZATION_HEADER = "Authorization";
     public static final String VALUE_ATTRIBUTE = "value";
+    public static final String CLASS_ATTRIBUTE = "class";
+    public static final String SELECTED_TAB_VALUE = "current";
     public static final String INCORRECT_PASSWORD = "1234";
 }
